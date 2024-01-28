@@ -27,16 +27,14 @@ const CreateStore = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        name: "",
+        name: " ",
     },
   })
   
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
    try {
     setLoading(true)
-
     const response = await axios.post('/api/stores', values)
-
     window.location.assign(`/${response.data.id}`)  
    } catch (error) {
     toast.error("Something went wrong.")
@@ -51,7 +49,8 @@ const CreateStore = () => {
         title='Create Store' 
         description='Add a new store'
         isOpen={storeModal.isOpen}
-        onClose={storeModal.onClose}>
+        onClose={storeModal.onClose}
+        >
         <div className="space-y-4 py-2 pb-4">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>

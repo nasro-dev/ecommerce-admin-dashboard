@@ -10,10 +10,15 @@ export function Mainnav({className, ...props}: React.HTMLAttributes<HTMLElement>
 
   const  routes = [
     {
+      href: `/${params.storeId}`,
+      label: 'Overview',
+      action: pathname === `/${params.storeId}`,
+    },
+    {
         href: `/${params.storeId}/settings`,
         label: 'Settings',
         action: pathname === `/${params.storeId}/settings`,
-    },
+    }
   ] 
   return (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>

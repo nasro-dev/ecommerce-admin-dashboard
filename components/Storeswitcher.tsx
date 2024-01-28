@@ -47,11 +47,11 @@ export default function Storeswitcher({
                 size="sm" 
                 role="contains" 
                 aria-expanded={open} 
-                aria-aria-label="Select a store" 
+                aria-label="Select a store" 
                 className={cn("w-[200px] justify-between", className)}>
                 <StoreIcon className="mr-2 h-4 w-4"/>
                 {currentStore?.label}      
-                <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-30" />
+                <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-30"/>
             </Button>
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-8">
@@ -60,7 +60,7 @@ export default function Storeswitcher({
                     <CommandInput placeholder="Search store..." />
                     <CommandEmpty>No store found</CommandEmpty>
                     <CommandGroup heading="Stores">
-                        {formattedItems.map((store)=>(
+                        {formattedItems.map((store) => (
                             <CommandItem 
                                 key={store.value}
                                 onSelect={() => onStoreSelect(store)}
@@ -72,7 +72,7 @@ export default function Storeswitcher({
                                     className={cn("ml-auto h-4 w-4",
                                             currentStore?.value === store.value
                                             ? 'opacity-100'
-                                            : 'opacity-4'
+                                            : 'opacity-0'
                                             )}   
                                 /> 
                            </CommandItem>
